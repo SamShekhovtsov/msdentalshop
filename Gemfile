@@ -25,6 +25,8 @@ gem 'foundation-rails'
 gem 'gibbon'
 gem 'high_voltage'
 gem 'simple_form'
+gem 'jquery-rails'
+gem 'modernizr_rails'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
