@@ -2,3 +2,23 @@
 <p>Welcome to the home of <%= @owner.name %>.</p>
 <p>I was born on <%= @owner.birthdate %>. </p>
 <p>Only <%= @owner.countdown %> days until my birthday!</p>
+<% content_for :title do %>MS Dental Clinic Owner Home<% end %>
+<% content_for :description do %>MS Dental Clinic website<% end %>
+<section>
+    <img width="1170" heigh="600" src='https://careforlifeclinic.com/wp-content/uploads/2018/05/cropped-dentist_teeth_1.jpg'>
+</section>
+<section>
+    <div class="column">
+        <h2>Stay in touch.</h2>
+    </div>
+    <div class="column">
+        <div class="form-centered">
+            <%= simple_form_for @visitor do |f| %>
+                <%= f.error._notification %>
+                <%= f.input :email, label: false, :placeholder => 'Your email address...' %>
+                <br/>
+                <%= f.button :submit, "Sign up for the newsletter", :class => "submit" %>
+            <% end %>
+        </div>
+    </div>
+</section>
