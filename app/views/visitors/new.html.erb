@@ -1,7 +1,3 @@
-<h3>MS Dental Clinic Owner Home</h3>
-<p>Welcome to the home of <%= @owner.name %>.</p>
-<p>I was born on <%= @owner.birthdate %>. </p>
-<p>Only <%= @owner.countdown %> days until my birthday!</p>
 <% content_for :title do %>MS Dental Clinic Owner Home<% end %>
 <% content_for :description do %>MS Dental Clinic website<% end %>
 <section>
@@ -14,7 +10,7 @@
     <div class="column">
         <div class="form-centered">
             <%= simple_form_for @visitor do |f| %>
-                <%= f.error._notification %>
+                <%= f.error_notification %>
                 <%= f.input :email, label: false, :placeholder => 'Your email address...' %>
                 <br/>
                 <%= f.button :submit, "Sign up for the newsletter", :class => "submit" %>
