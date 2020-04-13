@@ -62,7 +62,7 @@ group :test do
 end
 
 group :production, :test do
-  'pg'
+  'sqlite3'
   'rails_12factor'
 end
 
