@@ -5,8 +5,3 @@ class PatientTest < ActiveSupport::TestCase
   #   assert true
   # end
 end
-
-test "should not save patient without ApplicantID" do
-  patient = Patient.new
-  assert_not patient.save
-end
