@@ -6,7 +6,6 @@ class ApplicantTest < ActiveSupport::TestCase
   # end
 end
 
-
 test "should not save applicant without name" do
   applicant = Applicant.new
   assert_not applicant.save
