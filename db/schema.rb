@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_16_195120) do
+ActiveRecord::Schema.define(version: 2020_04_17_152244) do
 
   create_table "appointments", force: :cascade do |t|
     t.datetime "date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "doctors", force: :cascade do |t|
+    t.string "name"
+    t.string "level"
+    t.string "profilephotourl"
+    t.datetime "birthdate"
+    t.text "biography"
+    t.integer "practicestartyear"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
