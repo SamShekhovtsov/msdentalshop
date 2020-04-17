@@ -1,0 +1,11 @@
+<h1>Schedule new appointment</h1>
+<%= form_with scope: :appointment, url: appointment_path, local: true do |form| %>
+  <p>
+    <%= form.label :date %><br>
+    <%= form.text_field :date %>
+  </p>
+ 
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

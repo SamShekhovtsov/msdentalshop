@@ -4,5 +4,8 @@ Rails.application.routes.draw do
   get 'patient/index'
   get 'appointment/index'
   
+  resources :doctor
+  resources :appointment
+
   root 'welcome#index'
 end
