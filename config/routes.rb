@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   #get 'appointment/index'
   
   resources :doctor
-  resources :appointment
+  resources :appointments
 
   root 'welcome#index'
 end

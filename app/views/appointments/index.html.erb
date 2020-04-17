@@ -1,0 +1,17 @@
+<h1>Scheduled appointments</h1>
+ 
+<table>
+  <tr>
+    <th>Appointment Date</th>
+    <th>Registration date</th>
+    <th></th>
+  </tr>
+ 
+  <% @appointments.each do |appointment| %>
+    <tr>
+      <td><%= appointment.date %></td>
+      <td><%= appointment.created_at %></td>
+      <td><%= link_to 'Show', appointment_path(appointment) %></td>
+    </tr>
+  <% end %>
+</table>
