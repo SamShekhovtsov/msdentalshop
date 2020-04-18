@@ -10,10 +10,6 @@ class AppointmentsController < ApplicationController
     def new
         @appointment = Appointment.new
     end
-
-    def edit
-        @appointment = Appointment.find(params[:id])
-    end
   
     def create
       @appointment = Appointment.new(appointment_params)
@@ -23,6 +19,20 @@ class AppointmentsController < ApplicationController
       else
         render "new"
       end
+    end
+
+    def edit
+        @appointment = Appointment.find(params[:id])
+    end
+
+    def update
+        @appointment = Appointment.find(params[:id])
+       
+        if @appointment.update(appointment_params)
+          redirect_to @appointment
+        else
+          render 'edit'
+        end
     end
      
     private
