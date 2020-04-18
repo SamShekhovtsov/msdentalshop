@@ -8,14 +8,21 @@ class AppointmentsController < ApplicationController
     end
   
     def new
-  
+        @appointment = Appointment.new
+    end
+
+    def edit
+        @appointment = Appointment.find(params[:id])
     end
   
     def create
       @appointment = Appointment.new(appointment_params)
      
-      @appointment.save
-      redirect_to @appointment
+      if @appointment.save
+        redirect_to @appointment
+      else
+        render "new"
+      end
     end
      
     private
