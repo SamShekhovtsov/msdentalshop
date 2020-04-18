@@ -12,6 +12,10 @@
       <td><%= appointment.date %></td>
       <td><%= appointment.created_at %></td>
       <td><%= link_to 'Show', appointment_path(appointment) %></td>
+      <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
+      <td><%= link_to 'Destroy', appointment_path(article),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
 </table>

@@ -34,9 +34,17 @@ class AppointmentsController < ApplicationController
           render 'edit'
         end
     end
+
+
+    def destroy
+        @appointment = Appointment.find(params[:id])
+        @appointment.destroy
+   
+        redirect_to appointments_path
+    end
      
     private
       def appointment_params
-        params.require(:appointment).permit(:date, :text)
+        params.require(:appointment).permit(:date)
       end
 end
