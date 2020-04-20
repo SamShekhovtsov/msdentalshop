@@ -15,13 +15,19 @@
  
   <p>
     <%= form.label :date %><br>
-    <%= form.text_field :date %>
+    <%= form.date_field :date %>
+  </p>                                                                                                                                                                                                                                                                                                                      
+
+  <p>
     <%= form.label "Doctor" %><br>
-    <%= f.collection_select(:doctor_id, @doctors, :rowid, :name, { :prompt => 'Select a Doctor', :selected => @appointment.doctor_id }, { class: 'form-control' }) %>
-    <%= form.label "Patient" %><br>
-    <%= f.collection_select(:patient_id, @patients, :rowid, :name, { :prompt => 'Select a Patient', :selected => @appointment.patient_id }, { class: 'form-control' }) %>
+    <%= form.collection_select(:doctor_id, @doctors, :id, :name, { :prompt => 'Select a Doctor', :selected => @appointment.doctor_id }, { class: 'form-control' }) %>
   </p>
  
+ <p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+    <%= form.label "Patient" %><br>
+    <%= form.collection_select(:patient_id, @patients, :id, :name, { :prompt => 'Select a Patient', :selected => @appointment.patient_id }, { class: 'form-control' }) %>
+ </p>
+
   <p>
     <%= form.submit %>
   </p>

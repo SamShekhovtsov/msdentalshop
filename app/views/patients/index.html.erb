@@ -1,2 +1,22 @@
-<h1>Patients#index</h1>
-<p>Find me in app/views/patients/index.html.erb</p>
+<h1>All registered patients</h1>
+ 
+ <p>
+    <%= link_to 'Add Patient Profile', new_patient_path %>
+ </p>
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+  </tr>
+ 
+  <% @patients.each do |patient| %>
+    <tr>
+      <td><%= patient.name %></td>
+      <td><%= link_to 'Show', patient_path(patient) %></td>
+      <td><%= link_to 'Edit', edit_patient_path(patient) %></td>
+      <td><%= link_to 'Destroy', patient_path(patient),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
