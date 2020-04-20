@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'patients/index'
   #get 'doctors/index'
   #get 'doctor/index'
   get 'welcome/index'
@@ -12,7 +13,7 @@ Rails.application.routes.draw do
   resources :patients do
     resources :appointments
   end
-  
+
   resources :appointments
 
   root 'welcome#index'
