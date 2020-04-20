@@ -9,6 +9,8 @@ class AppointmentsController < ApplicationController
   
     def new
         @appointment = Appointment.new
+        @doctors = Doctor.all
+        @patients = Patient.all
     end
   
     def create
@@ -23,6 +25,8 @@ class AppointmentsController < ApplicationController
 
     def edit
         @appointment = Appointment.find(params[:id])
+        @doctors = Doctor.all
+        @patients = Patient.all
     end
 
     def update

@@ -1,0 +1,50 @@
+<%= form_with model: @doctor, local: true do |form| %>
+ 
+  <% if @doctor.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@doctor.errors.count, "error") %> prohibited this doctor from being saved:
+      </h2>
+      <ul>
+        <% @doctor.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+ 
+  <p>
+    <%= form.label :level %><br>
+    <%= form.text_field :level %>
+  </p>
+ 
+  <p>
+    <%= form.label :profilephotourl %><br>
+    <%= form.text_field :profilephotourl %>
+  </p>
+ 
+  <p>
+    <%= form.label :birthdate %><br>
+    <%= form.datetime_field :birthdate %>
+  </p>
+ 
+  <p>
+    <%= form.label :biography %><br>
+    <%= form.text_area(:biography, size: '50x10') %>
+  </p>
+ 
+  <p>
+    <%= form.label :practicestartyear %><br>
+    <%= form.number_field :practicestartyear %>
+  </p> 
+ 
+  <p>
+    <%= form.submit %>
+  </p>
+ 
+<% end %>
