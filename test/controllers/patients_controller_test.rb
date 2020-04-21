@@ -1,9 +1,15 @@
 require 'test_helper'
 
 class PatientsControllerTest < ActionDispatch::IntegrationTest
-  test "should get index" do
-    get patients_index_url
+  test "should load patients list page" do
+    get patients_path
+
     assert_response :success
+    assert_equal "index", @controller.action_name
   end
 
+  test "should new patient page" do
+    get new_patient_path
+    assert_response :success
+  end
 end
