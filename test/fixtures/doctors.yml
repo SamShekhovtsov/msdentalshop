@@ -1,17 +1,25 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  level: MyString
-  profilephotourl: MyString
-  birthdate: 2020-04-17 23:22:44
-  biography: MyText
-  practicestartyear: 1
+doctor1:
+  name: Dr. Whatever Surnamed
+  level: Assistant level min experience
+  profilephotourl: profile picture url prvided during creation
+  birthdate: 1975-04-17 23:22:44
+  biography: original honest doctor bigraphy text. limited to 10 characters minimum
+  practicestartyear: 2001
 
-two:
-  name: MyString
-  level: MyString
-  profilephotourl: MyString
+doctorUpdate:
+  name: Doctor name updated
+  level: Changed level
+  profilephotourl: some wery long profile picture url
   birthdate: 2020-04-17 23:22:44
-  biography: MyText
-  practicestartyear: 1
+  biography: the modified doctor bigraphy text. at least 100 words
+  practicestartyear: 1991
+
+newDoctor:
+  name: Doctor name should create
+  level: Some fake level
+  profilephotourl: wery long profile picture url
+  birthdate: 1975-04-03 23:22:44
+  biography: some informative doctor bigraphy text. at least 100 words
+  practicestartyear: 2009

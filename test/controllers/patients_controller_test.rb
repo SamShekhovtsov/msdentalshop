@@ -8,7 +8,7 @@ class PatientsControllerTest < ActionDispatch::IntegrationTest
     assert_equal "index", @controller.action_name
   end
 
-  test "should new patient page" do
+  test "should load new patient page" do
     get new_patient_path
     assert_response :success
   end
