@@ -18,6 +18,7 @@ class PatientsController < ApplicationController
       flash[:notice] = 'Patient profile was successfully created.'
       redirect_to @patient
     else
+      flash[:error] = 'Error while trying to create patient profile.'
       render "new"
     end
   end

@@ -31,6 +31,16 @@ class PatientsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should NOT create patient" do
+    get new_patient_path
+    assert_response :success
+
+    post patients_url, params: { patient: { name: nil } }
+  
+    assert_response :success
+    assert_equal 'Error while trying to create patient profile.', flash[:error]
+  end
+
   test "should create patient" do
     get new_patient_path
     assert_response :success
