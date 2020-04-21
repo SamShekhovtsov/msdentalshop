@@ -1,7 +1,10 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
+patient1:
+  name: Sample Patient Name Surname
 
-two:
-  name: MyString
+patientUpdate:
+  name: Updated Patient Names
+
+newPatient:
+  name: Some new patient with nice name

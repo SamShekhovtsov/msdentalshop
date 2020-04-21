@@ -15,6 +15,7 @@ class PatientsController < ApplicationController
     @patient = Patient.new(patient_params)
 
     if @patient.save
+      flash[:notice] = 'Patient profile was successfully created.'
       redirect_to @patient
     else
       render "new"
