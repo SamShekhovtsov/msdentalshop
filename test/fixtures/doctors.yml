@@ -7,6 +7,7 @@ doctor1:
   birthdate: 1975-04-17 23:22:44
   biography: original honest doctor bigraphy text. limited to 10 characters minimum
   practicestartyear: 2001
+  appointments: appointment1
 
 doctorUpdate:
   name: Doctor name updated
@@ -15,6 +16,7 @@ doctorUpdate:
   birthdate: 2020-04-17 23:22:44
   biography: the modified doctor bigraphy text. at least 100 words
   practicestartyear: 1991
+  appointments: appointmentUpdate
 
 newDoctor:
   name: Doctor name should create
@@ -23,3 +25,4 @@ newDoctor:
   birthdate: 1975-04-03 23:22:44
   biography: some informative doctor bigraphy text. at least 100 words
   practicestartyear: 2009
+  appointments: newAppointment

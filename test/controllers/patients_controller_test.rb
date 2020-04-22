@@ -31,7 +31,7 @@ class PatientsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should NOT create patient" do
+  test "should NOT create patient without name" do
     get new_patient_path
     assert_response :success
 
@@ -39,6 +39,7 @@ class PatientsControllerTest < ActionDispatch::IntegrationTest
   
     assert_response :success
     assert_equal 'Error while trying to create patient profile.', flash[:error]
+    assert_template "new"
   end
 
   test "should create patient" do
@@ -73,5 +74,15 @@ class PatientsControllerTest < ActionDispatch::IntegrationTest
     # Reload association to fetch updated data and assert that title is updated.
     @patient.reload
     assert_equal @patientToUpdate.name, @patient.name
+  end
+ 
+  test "should NOT update patient with missing parameteres" do
+    @patientToUpdate = patients(:patientUpdate)
+    @patientToUpdate.name = nil
+    patch patient_url(@patient), params: { patient: @patientToUpdate.attributes }
+ 
+    assert_response :success
+    assert_equal 'Error while trying to update patient profile.', flash[:error]
+    assert_template "edit"
   end
 end

@@ -31,7 +31,7 @@ class DoctorsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should NOT create doctor" do
+  test "should NOT create doctor without required paramteres" do
     get new_doctor_path
     assert_response :success
 
@@ -39,6 +39,7 @@ class DoctorsControllerTest < ActionDispatch::IntegrationTest
   
     assert_response :success
     assert_equal 'Error while trying to create doctor profile.', flash[:error]
+    assert_template "new"
   end
 
   test "should create doctor" do
