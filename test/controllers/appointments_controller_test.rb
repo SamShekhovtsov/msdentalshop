@@ -45,4 +45,27 @@ class AppointmentsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_equal 'Error while trying to schedule new appointment.', flash[:error]
   end
+
+  test "should schedule appointment" do
+    get new_appointment_path
+    assert_response :success
+
+    assert_difference('Appointment.count') do
+      post appointments_url, params: { appointment: @testNewAppointment.attributes }
+    end
+  
+    assert_response :redirect
+    assert_redirected_to appointment_path(Appointment.last)
+    assert_equal 'Appointment was scheduled successfully.', flash[:notice]
+    follow_redirect!
+    assert_response :success    
+  end
+
+  test "should destroy appointment" do
+    assert_difference('Appointment.count', -1) do
+      delete appointment_url(@appointment)
+    end
+ 
+    assert_redirected_to appointments_path
+  end
 end
