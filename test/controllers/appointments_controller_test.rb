@@ -68,4 +68,14 @@ class AppointmentsControllerTest < ActionDispatch::IntegrationTest
  
     assert_redirected_to appointments_path
   end
+
+  test "should update appointment" do
+    @appointmentToUpdate = appointments(:appointmentUpdate)
+    patch appointment_url(@appointment), params: { appointment: @appointmentToUpdate.attributes }
+ 
+    assert_redirected_to appointment_path(@appointment)
+    # Reload association to fetch updated data and assert that title is updated.
+    @appointment.reload
+    assert_equal @appointmentToUpdate.date, @appointment.date
+  end
 end
