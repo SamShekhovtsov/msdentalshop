@@ -36,7 +36,7 @@ class AppointmentsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should NOT schedule new appointment" do
+  test "should NOT schedule new appointment without date" do
     get new_appointment_path
     assert_response :success
 
@@ -44,6 +44,7 @@ class AppointmentsControllerTest < ActionDispatch::IntegrationTest
   
     assert_response :success
     assert_equal 'Error while trying to schedule new appointment.', flash[:error]
+    assert_template "new"
   end
 
   test "should schedule appointment" do
@@ -77,5 +78,15 @@ class AppointmentsControllerTest < ActionDispatch::IntegrationTest
     # Reload association to fetch updated data and assert that title is updated.
     @appointment.reload
     assert_equal @appointmentToUpdate.date, @appointment.date
+  end
+
+  test "should NOT update appointment without date" do
+    @appointmentToUpdate = appointments(:appointmentUpdate)
+    @appointmentToUpdate.date = nil;
+    patch appointment_url(@appointment), params: { appointment: @appointmentToUpdate.attributes }
+ 
+    assert_response :success
+    assert_equal 'Error while trying to update scheduled appointment.', flash[:error]
+    assert_template "edit"
   end
 end

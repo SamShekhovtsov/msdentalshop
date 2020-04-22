@@ -41,6 +41,8 @@ class AppointmentsController < ApplicationController
           redirect_to @appointment
         else
           flash[:error] = 'Error while trying to update scheduled appointment.'
+          @doctors = Doctor.all
+          @patients = Patient.all
           render 'edit'
         end
     end
