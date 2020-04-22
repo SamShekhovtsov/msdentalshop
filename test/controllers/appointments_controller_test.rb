@@ -36,7 +36,7 @@ class AppointmentsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should NOT create appointment" do
+  test "should NOT schedule new appointment" do
     get new_appointment_path
     assert_response :success
 
@@ -56,7 +56,7 @@ class AppointmentsControllerTest < ActionDispatch::IntegrationTest
   
     assert_response :redirect
     assert_redirected_to appointment_path(Appointment.last)
-    assert_equal 'Appointment was scheduled successfully.', flash[:notice]
+    assert_equal 'Appointment is scheduled successfully.', flash[:notice]
     follow_redirect!
     assert_response :success    
   end
