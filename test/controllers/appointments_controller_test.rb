@@ -4,7 +4,7 @@ class AppointmentsControllerTest < ActionDispatch::IntegrationTest
   
   # called before every single test
   setup do
-    @appointment = appointments(:aapointment1)
+    @appointment = appointments(:appointment1)
     @testNewAppointment = appointments(:newAppointment)
   end
 
@@ -13,7 +13,7 @@ class AppointmentsControllerTest < ActionDispatch::IntegrationTest
     # when controller is using cache it may be a good idea to reset it afterwards
     Rails.cache.clear
   end
-  
+
   test "should load appointments list page" do
     get appointments_path
 
@@ -22,6 +22,16 @@ class AppointmentsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get schedule new appointment page" do
+    get new_appointment_path
+    assert_response :success
+  end
+
+  test "should show appointment" do
+    get appointment_url(@appointment)
+    assert_response :success
+  end
+
+  test "should load new appointment page" do
     get new_appointment_path
     assert_response :success
   end
