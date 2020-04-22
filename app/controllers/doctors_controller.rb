@@ -31,8 +31,10 @@ class DoctorsController < ApplicationController
     @doctor = Doctor.find(params[:id])
   
     if @doctor.update(doctor_params)
+      flash[:notice] = 'Doctor profile was successfully updated.'
       redirect_to @doctor
     else
+      flash[:error] = 'Error while trying to update doctor profile.'
       render 'edit'
     end
   end

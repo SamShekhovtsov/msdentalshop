@@ -35,4 +35,14 @@ class AppointmentsControllerTest < ActionDispatch::IntegrationTest
     get new_appointment_path
     assert_response :success
   end
+
+  test "should NOT create appointment" do
+    get new_appointment_path
+    assert_response :success
+
+    post appointments_url, params: { appointment: { date: nil } }
+  
+    assert_response :success
+    assert_equal 'Error while trying to schedule new appointment.', flash[:error]
+  end
 end

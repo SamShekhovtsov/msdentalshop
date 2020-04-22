@@ -17,8 +17,10 @@ class AppointmentsController < ApplicationController
       @appointment = Appointment.new(appointment_params)
      
       if @appointment.save
+        flash[:notice] = 'Appointment is scheduled successfully.'
         redirect_to @appointment
       else
+        flash[:error] = 'Error while trying to schedule new appointment.'
         render "new"
       end
     end
@@ -33,8 +35,10 @@ class AppointmentsController < ApplicationController
         @appointment = Appointment.find(params[:id])
        
         if @appointment.update(appointment_params)
+          flash[:notice] = 'Appointment is changed successfully.'
           redirect_to @appointment
         else
+          flash[:error] = 'Error while trying to update scheduled appointment.'
           render 'edit'
         end
     end
