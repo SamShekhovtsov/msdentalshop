@@ -14,17 +14,27 @@ class AppointmentsController < ApplicationController
     end
   
     def create
-      @appointment = Appointment.new(appointment_params)
-     
-      if @appointment.save
-        flash[:notice] = 'Appointment is scheduled successfully.'
-        redirect_to @appointment
-      else
-        flash[:error] = 'Error while trying to schedule new appointment.'
-        @doctors = Doctor.all
-        @patients = Patient.all
-        render "new"
-      end
+        if !appointment_params[:date].nil? && appointment_params[:date] < DateTime.current
+            flash[:error] = "Can't scheduled an appointment to a date in the past."
+            @appointment = Appointment.new
+            @doctors = Doctor.all
+            @patients = Patient.all
+            render "new"
+        else
+
+            @appointment = Appointment.new(appointment_params)
+            
+            if @appointment.save
+                flash[:notice] = 'Appointment is scheduled successfully.'
+                redirect_to @appointment
+            else
+                flash[:error] = 'Error while trying to schedule new appointment.'
+                @appointment = Appointment.new
+                @doctors = Doctor.all
+                @patients = Patient.all
+                render "new"
+            end
+        end
     end
 
     def edit
@@ -34,16 +44,26 @@ class AppointmentsController < ApplicationController
     end
 
     def update
-        @appointment = Appointment.find(params[:id])
-       
-        if @appointment.update(appointment_params)
-          flash[:notice] = 'Appointment is changed successfully.'
-          redirect_to @appointment
+        if !appointment_params[:date].nil? && appointment_params[:date] < DateTime.current
+            flash[:error] = "Can't re-scheduled the appointment to a date in the past."
+            @appointment = Appointment.find(params[:id])
+            @doctors = Doctor.all
+            @patients = Patient.all
+            render "edit"
         else
-          flash[:error] = 'Error while trying to update scheduled appointment.'
-          @doctors = Doctor.all
-          @patients = Patient.all
-          render 'edit'
+
+            @appointment = Appointment.find(params[:id])
+        
+            if @appointment.update(appointment_params)
+                flash[:notice] = 'Appointment is changed successfully.'
+                redirect_to @appointment
+            else
+                flash[:error] = 'Error while trying to update scheduled appointment.'
+                @appointment = Appointment.find(params[:id])
+                @doctors = Doctor.all
+                @patients = Patient.all
+                render 'edit'
+            end
         end
     end
 

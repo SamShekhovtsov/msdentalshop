@@ -36,17 +36,6 @@ class AppointmentsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should NOT schedule new appointment without date" do
-    get new_appointment_path
-    assert_response :success
-
-    post appointments_url, params: { appointment: { date: nil } }
-  
-    assert_response :success
-    assert_equal 'Error while trying to schedule new appointment.', flash[:error]
-    assert_template "new"
-  end
-
   test "should schedule appointment" do
     get new_appointment_path
     assert_response :success
@@ -60,6 +49,26 @@ class AppointmentsControllerTest < ActionDispatch::IntegrationTest
     assert_equal 'Appointment is scheduled successfully.', flash[:notice]
     follow_redirect!
     assert_response :success    
+  end
+
+  test "should NOT schedule new appointment without date" do
+    get new_appointment_path
+    assert_response :success
+
+    post appointments_url, params: { appointment: { date: nil } }
+  
+    assert_response :success
+    assert_equal 'Error while trying to schedule new appointment.', flash[:error]
+    assert_template "new"
+  end
+  
+  test "should NOT allow to schedule an appointment to a date in the past" do
+    @testNewAppointment.date = Date.yesterday();
+    post appointments_url, params: { appointment: @testNewAppointment.attributes }
+ 
+    assert_response :success
+    assert_equal "Can't scheduled an appointment to a date in the past.", flash[:error]
+    assert_template "new"
   end
 
   test "should destroy appointment" do
@@ -87,6 +96,16 @@ class AppointmentsControllerTest < ActionDispatch::IntegrationTest
  
     assert_response :success
     assert_equal 'Error while trying to update scheduled appointment.', flash[:error]
+    assert_template "edit"
+  end
+  
+  test "should NOT allow to schedule event in the past" do
+    @appointmentToUpdate = appointments(:appointmentUpdate)
+    @appointmentToUpdate.date = Date.yesterday();
+    patch appointment_url(@appointment), params: { appointment: @appointmentToUpdate.attributes }
+ 
+    assert_response :success
+    assert_equal "Can't re-scheduled the appointment to a date in the past.", flash[:error]
     assert_template "edit"
   end
 end
