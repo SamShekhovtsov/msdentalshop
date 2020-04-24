@@ -66,7 +66,7 @@ class PatientsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to patients_path
   end
  
-  test "should update patient" do
+  test "should update patient with valid paramters" do
     @patientToUpdate = patients(:patientUpdate)
     patch patient_url(@patient), params: { patient: @patientToUpdate.attributes }
  
