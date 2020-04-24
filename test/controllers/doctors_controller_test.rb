@@ -66,7 +66,7 @@ class DoctorsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to doctors_path
   end
  
-  test "should update doctor" do
+  test "should update doctor with correct patamteres" do
     @doctorToUpdate = doctors(:doctorUpdate)
     patch doctor_url(@doctor), params: { doctor: @doctorToUpdate.attributes }
  
