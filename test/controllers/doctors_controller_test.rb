@@ -42,7 +42,7 @@ class DoctorsControllerTest < ActionDispatch::IntegrationTest
     assert_template "new"
   end
 
-  test "should create doctor" do
+  test "should create doctor with valid parameters" do
     get new_doctor_path
     assert_response :success
 
