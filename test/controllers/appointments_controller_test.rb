@@ -79,7 +79,7 @@ class AppointmentsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to appointments_path
   end
 
-  test "should update appointment" do
+  test "should update appointment with valid parameters" do
     @appointmentToUpdate = appointments(:appointmentUpdate)
     patch appointment_url(@appointment), params: { appointment: @appointmentToUpdate.attributes }
  
