@@ -36,7 +36,7 @@ class AppointmentsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should schedule appointment" do
+  test "should schedule appointment with valid parameters" do
     get new_appointment_path
     assert_response :success
 
