@@ -2,12 +2,9 @@
 
 patient1:
   name: Sample Patient Name Surname
-  appointments: appointment1
 
 patientUpdate:
   name: Updated Patient Names
-  appointments: appointmentUpdate
 
 newPatient:
   name: Some new patient with nice name
-  appointments: newAppointment
