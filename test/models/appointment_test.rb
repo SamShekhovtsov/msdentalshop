@@ -12,7 +12,7 @@ class AppointmentTest < ActiveSupport::TestCase
     # when controller is using cache it may be a good idea to reset it afterwards
     Rails.cache.clear
   end
-  
+
   test "should not make appointments without appointment date" do
     appointment = Appointment.new
     assert_not appointment.save, "Created appointment without appointment date"
@@ -21,6 +21,6 @@ class AppointmentTest < ActiveSupport::TestCase
   test "should schedule an appointment with valid parameters" do
 
     appointment = Appointment.new(@appointment.attributes.delete :id)
-    assert appointment.save, "Can't save an appointment"
+    assert appointment.save, "Can't schedule an appointment"
   end
 end
