@@ -20,7 +20,9 @@ class AppointmentTest < ActiveSupport::TestCase
 
   test "should schedule an appointment with valid parameters" do
 
-    appointment = Appointment.new(@appointment.attributes.delete :id)
+    appointmentValidAttributes = @appointment.attributes
+    appointmentValidAttributes.delete("id")
+    appointment = Appointment.new(appointmentValidAttributes)
     assert appointment.save, "Can't schedule an appointment"
   end
 end
