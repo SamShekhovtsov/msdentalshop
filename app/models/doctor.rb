@@ -1,5 +1,5 @@
 class Doctor < ApplicationRecord
-    has_many :appointments
+    has_many :appointments, dependent: :destroy
     validates :name, presence: true, length: { minimum: 5 }
     validates :level, presence: true, length: { minimum: 3 }
     validates :profilephotourl, presence: true, length: { minimum: 10 }
