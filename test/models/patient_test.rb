@@ -14,14 +14,39 @@ class PatientTest < ActiveSupport::TestCase
     Rails.cache.clear
   end
 
-  test "should not save patient without name" do
+  test "should NOT save patient without name" do
     patient = Patient.new
     assert_not patient.save, "Saved patient without name"
   end
 
   test "should save patient with valid parameters" do
+    patientValidAttributes = @patient.attributes
+    patientValidAttributes.delete("id")
+    patient = Patient.new(patientValidAttributes)
+    assert patient.save, "Can't save patient with valid attributes"
+  end
 
-    patient = Patient.new(@patient.attributes.delete :id)
-    assert patient.save, "Saved patient successfully"
+  test "should NOT save patient with missing attributes" do
+    patientValidAttributes = @patient.attributes
+    patientValidAttributes.delete("id")
+    patientValidAttributes.delete("name")
+    patient = Patient.new(patientValidAttributes)
+    assert_not patient.save, "Saved patient with missing attributes"
+  end
+
+  test "should NOT save patient with empty attributes" do
+    patientValidAttributes = @patient.attributes
+    patientValidAttributes.delete("id")
+    patientValidAttributes["name"] = ""
+    patient = Patient.new(patientValidAttributes)
+    assert_not patient.save, "Saved patient with empty attributes"
+  end
+
+  test "should NOT save patient with invalid attributes" do
+    patientValidAttributes = @patient.attributes
+    patientValidAttributes.delete("id")
+    patientValidAttributes["name"] = "test"
+    patient = Patient.new(patientValidAttributes)
+    assert_not patient.save, "Saved patient with invalid attributes"
   end
 end
