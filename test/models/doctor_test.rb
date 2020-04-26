@@ -20,8 +20,9 @@ class DoctorTest < ActiveSupport::TestCase
   end
 
   test "should save doctor with valid parameters" do
-
-    doctor = Doctor.new(@doctor.attributes.delete :id)
-    assert doctor.save, "Can't save doctor"
+    doctorValidAttributes = @doctor.attributes
+    doctorValidAttributes.delete("id")
+    doctor = Doctor.new(doctorValidAttributes)
+    assert doctor.save, "Can't save doctor with valid attributes"
   end
 end
