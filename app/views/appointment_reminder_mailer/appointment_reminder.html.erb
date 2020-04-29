@@ -15,6 +15,9 @@
             Appointment Date: <%= @appointment.date %>
         </p>
         <p>
+            <%= link_to 'Appointment link: ', appointment_path(appointment) %>
+        </p>
+        <p>
             Please don't forget to come 15 minutes before the agreed time
         </p>
     </body>
