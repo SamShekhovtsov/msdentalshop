@@ -23,7 +23,7 @@ class AppointmentTest < ActiveSupport::TestCase
     appointmentValidAttributes.delete("id")
     appointmentValidAttributes["date"] = nil
     appointment = Appointment.new(appointmentValidAttributes)
-    assert_not appointment.save, "Saved appointment with empty attributes"
+    assert_not appointment.save, "Saved appointment with empty date"
   end
 
   test "should schedule an appointment with valid parameters" do
