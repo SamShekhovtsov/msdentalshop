@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+    </head>
+    <body>
+        <h1>MS Dental clinic reminds you</h1>
+        <p>
+            You have scheduled an appointment with doctor
+        </p>
+        <p>
+            <%= @appointment.doctor.name %>
+        </p>
+        <p>
+            Appointment Date: <%= @appointment.date %>
+        </p>
+        <p>
+            Please don't forget to come 15 minutes before the agreed time
+        </p>
+    </body>
+</html>
