@@ -25,7 +25,7 @@ class AppointmentsController < ApplicationController
             @appointment = Appointment.new(appointment_params)
             
             if @appointment.save
-                AppointmentReminderMailer.appointment_reminder(@appointment).deliver
+                AppointmentReminderMailer.reminder_email(@appointment).deliver
                 
                 flash[:notice] = 'Appointment is scheduled successfully. Email reminder has been sent.'
                 redirect_to @appointment
