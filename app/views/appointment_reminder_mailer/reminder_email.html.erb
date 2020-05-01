@@ -6,7 +6,7 @@
     <body>
         <h1>MS Dental clinic reminds you about scheduled appointment with doctor</h1>
         <p>
-            You have scheduled an appointment with doctor
+            Doctor name:
         </p>
         <p>
             <%= @appointment.doctor.name %>
@@ -18,7 +18,7 @@
             <%= link_to 'Appointment link: ', appointment_path(appointment) %>
         </p>
         <p>
-            Please don't forget to come 15 minutes before the agreed time
+            Please don't forget to come 15 minutes before the agreed time.
         </p>
     </body>
 </html>
