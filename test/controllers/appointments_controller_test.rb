@@ -46,7 +46,7 @@ class AppointmentsControllerTest < ActionDispatch::IntegrationTest
   
     assert_response :redirect
     assert_redirected_to appointment_path(Appointment.last)
-    assert_equal 'Appointment is scheduled successfully.', flash[:notice]
+    assert_equal 'Appointment is scheduled successfully. Email reminder has been sent.', flash[:notice]
     follow_redirect!
     assert_response :success    
   end
