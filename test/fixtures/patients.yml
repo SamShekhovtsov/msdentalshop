@@ -2,9 +2,12 @@
 
 patient1:
   name: Sample Patient Name Surname
+  email: sampletest@msdental.com
 
 patientUpdate:
   name: Updated Patient Names
+  email: sampletestupdate@msdental.com
 
 newPatient:
   name: Some new patient with nice name
+  email: sampletestnew@msdental.com

@@ -36,6 +36,8 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
+  #config.action_controller.default_url_options = { host: 'myproduction.com' }
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 

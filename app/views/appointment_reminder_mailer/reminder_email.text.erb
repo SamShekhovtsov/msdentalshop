@@ -3,7 +3,7 @@ The scheduled appointment doctor name is: <%= @appointment.doctor.name %>
 
 Appointment Date: <%= @appointment.date %>
 
-<%= link_to 'Appointment link: ', appointment_path(appointment) %>
+<%= link_to 'Appointment link: ', appointment_url(@appointment) %>
 
 Please don't forget to come 15 minutes before the agreed time.
 
