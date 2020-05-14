@@ -23,6 +23,8 @@ class DoctorTest < ActiveSupport::TestCase
     doctorValidAttributes = @doctor.attributes
     doctorValidAttributes.delete("id")
     doctor = Doctor.new(doctorValidAttributes)
+    assert doctor.valid?
+    assert_equal 0, doctor.errors.size
     assert doctor.save, "Can't save doctor with valid attributes"
   end
 
@@ -31,6 +33,8 @@ class DoctorTest < ActiveSupport::TestCase
     doctorValidAttributes.delete("id")
     doctorValidAttributes.delete("level")
     doctor = Doctor.new(doctorValidAttributes)
+    assert_not doctor.valid?
+    assert_equal 2, doctor.errors.size
     assert_not doctor.save, "Saved doctor with missing attributes"
   end
 
@@ -39,6 +43,8 @@ class DoctorTest < ActiveSupport::TestCase
     doctorValidAttributes.delete("id")
     doctorValidAttributes["level"] = ""
     doctor = Doctor.new(doctorValidAttributes)
+    assert_not doctor.valid?
+    assert_equal 2, doctor.errors.size
     assert_not doctor.save, "Saved doctor with empty attributes"
   end
 
@@ -47,6 +53,8 @@ class DoctorTest < ActiveSupport::TestCase
     doctorValidAttributes.delete("id")
     doctorValidAttributes["name"] = "test"
     doctor = Doctor.new(doctorValidAttributes)
+    assert_not doctor.valid?
+    assert_equal 1, doctor.errors.size
     assert_not doctor.save, "Saved doctor with invalid attributes"
   end
 end
