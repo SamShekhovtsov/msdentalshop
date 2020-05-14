@@ -15,6 +15,8 @@ class AppointmentTest < ActiveSupport::TestCase
 
   test "should not make appointments without appointment date" do
     appointment = Appointment.new
+    assert_not appointment.valid?
+    assert_equal 5, appointment.errors.size
     assert_not appointment.save, "Created appointment without appointment date"
   end
 
@@ -23,6 +25,8 @@ class AppointmentTest < ActiveSupport::TestCase
     appointmentValidAttributes.delete("id")
     appointmentValidAttributes["date"] = nil
     appointment = Appointment.new(appointmentValidAttributes)
+    assert_not appointment.valid?
+    assert_equal 1, appointment.errors.size
     assert_not appointment.save, "Saved appointment with empty date"
   end
 
@@ -31,6 +35,8 @@ class AppointmentTest < ActiveSupport::TestCase
     appointmentValidAttributes = @appointment.attributes
     appointmentValidAttributes.delete("id")
     appointment = Appointment.new(appointmentValidAttributes)
+    assert appointment.valid?
+    assert_equal 0, appointment.errors.size
     assert appointment.save, "Can't schedule an appointment"
   end
 end
