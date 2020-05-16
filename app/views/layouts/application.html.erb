@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Msdentalshop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Msdentalshop" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Dental Clinic" %>">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
