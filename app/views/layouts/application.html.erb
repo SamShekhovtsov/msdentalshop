@@ -1,9 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title><%= content_for?(:title) ? yield(:title) : "Msdentalshop" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Dental Clinic" %>">
+    <meta name="author" content="" />
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,15 +15,17 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <!-- Bootstrap core CSS -->
-    <!-- Custom fonts for this template -->
-    <!-- Custom styles for this template -->
-    <!-- Navigation -->
-    <%= yield %>
-    <!-- Footer -->
-    <!-- Bootstrap core JavaScript -->
-    <!-- Plugin JavaScript -->
-    <!-- Custom scripts for this template -->
+  <body class="page-body  page-fade" data-url="http://neon.dev">
+    <div class="page-container">
+      <!-- Bootstrap core CSS -->
+      <!-- Custom fonts for this template -->
+      <!-- Custom styles for this template -->
+      <!-- Navigation -->
+      <%= yield %>
+      <!-- Footer -->
+      <!-- Bootstrap core JavaScript -->
+      <!-- Plugin JavaScript -->
+      <!-- Custom scripts for this template -->
+    </div>
   </body>
 </html>
