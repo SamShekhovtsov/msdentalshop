@@ -15,4 +15,4 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 #  vendor/somefile.js vendor/somefile.css \
 # vendor/bootstrap/*.js vendor/bootstrap/*.css \
 # vendor/bootstrap/**/*.js vendor/bootstrap/**/*.css)
-Rails.application.config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif *.svg *.eot *.woff *.ttf)
+Rails.application.config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif *.svg *.eot *.woff *.woff2 *.ttf *.otf)
