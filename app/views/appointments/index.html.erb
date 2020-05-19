@@ -1,24 +1,33 @@
-<h1>Scheduled appointments</h1>
- 
- <p>
-    <%= link_to 'Schedule new appointment', new_appointment_path %>
- </p>
-<table>
-  <tr>
-    <th>Appointment Date</th>
-    <th>Registration date</th>
-    <th></th>
-  </tr>
- 
-  <% @appointments.each do |appointment| %>
-    <tr>
-      <td><%= appointment.date %></td>
-      <td><%= appointment.created_at %></td>
-      <td><%= link_to 'Show', appointment_path(appointment) %></td>
-      <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
-      <td><%= link_to 'Destroy', appointment_path(appointment),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
-</table>
+<h2>Scheduled appointments</h2>
+<br />
+<div class="row">
+  <div class="col-md-12">
+    <p>
+      <%= link_to 'Schedule new appointment', new_appointment_path, class: "btn btn-gold" %>
+    </p>
+    <div class="table-responsive">
+      <table class="table table-hover table-striped table-responsive-md btn-table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Appointment Date</th>
+            <th scope="col">Registration date</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @appointments.each do |appointment| %>
+            <tr>
+              <td><%= appointment.date %></td>
+              <td><%= appointment.created_at %></td>
+              <td><%= link_to 'Show', appointment_path(appointment), class: "btn btn-blue btn-sm m-0" %></td>
+              <td><%= link_to 'Edit', edit_appointment_path(appointment), class: "btn btn-blue btn-sm m-0" %></td>
+              <td><%= link_to 'Destroy', appointment_path(appointment),
+                      method: :delete,
+                      data: { confirm: 'Are you sure?' }, class: "btn btn-blue btn-sm m-0" %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
