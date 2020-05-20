@@ -4,30 +4,34 @@
 <div class="row">
   <div class="col-md-12"> 
     <p>
-        <%= link_to 'Add Doctor Profile', new_doctor_path %>
+      <%= link_to 'Add Doctor Profile', new_doctor_path, class: "btn btn-gold" %>
     </p>
-    <table>
-      <tr>
-        <th>Name</th>
-        <th>Birth date</th>
-        <th>Proficiency Level</th>
-        <th>Practice since</th>
-        <th></th>
-      </tr>
-    
-      <% @doctors.each do |doctor| %>
-        <tr>
-          <td><%= doctor.name %></td>
-          <td><%= doctor.birthdate %></td>
-          <td><%= doctor.level %></td>
-          <td><%= doctor.practicestartyear %></td>
-          <td><%= link_to 'Show', doctor_path(doctor) %></td>
-          <td><%= link_to 'Edit', edit_doctor_path(doctor) %></td>
-          <td><%= link_to 'Destroy', doctor_path(doctor),
-                  method: :delete,
-                  data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
+     <div class="table-responsive">
+      <table class="table table-hover table-striped table-responsive-md btn-table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Birth date</th>
+            <th scope="col">Proficiency Level</th>
+            <th scope="col">Practice since</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @doctors.each do |doctor| %>
+            <tr>
+              <td><%= doctor.name %></td>
+              <td><%= doctor.birthdate %></td>
+              <td><%= doctor.level %></td>
+              <td><%= doctor.practicestartyear %></td>
+              <td><%= link_to 'Show', doctor_path(doctor), class: "btn btn-blue btn-sm m-0" %></td>
+              <td><%= link_to 'Edit', edit_doctor_path(doctor), class: "btn btn-blue btn-sm m-0" %></td>
+              <td><%= link_to 'Destroy', doctor_path(doctor),
+                      method: :delete,
+                      data: { confirm: 'Are you sure?' }, class: "btn btn-blue btn-sm m-0" %></td>
+            </tr>
+          <% end %>
+        </tbody>
     </table>
   </div>
 </div>
