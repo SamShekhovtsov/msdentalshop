@@ -1,6 +1,10 @@
-<p>
-  <strong>Patient name:</strong>
-  <%= @patient.name %>
-</p>
-<%= link_to 'Edit', edit_patient_path(@patient) %> |
-<%= link_to 'Back', patients_path %>
+<div class="row">
+  <div class="col-md-12"> 
+    <p>
+      <strong>Patient name:</strong>
+      <%= @patient.name %>
+    </p>
+    <%= link_to 'Edit', edit_patient_path(@patient) %> |
+    <%= link_to 'Back', patients_path %>
+  </div>
+</div>
