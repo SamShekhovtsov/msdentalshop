@@ -1,22 +1,26 @@
-<p>
-  <strong>Doctor name:</strong>
-  <%= @doctor.name %>
-</p>
-<p>
-  <strong>Date of birth:</strong>
-  <%= @doctor.birthdate %>
-</p>
-<p>
-  <strong>Proficiency Level:</strong>
-  <%= @doctor.level %>
-</p>
-<p>
-  <strong>Biography:</strong>
-  <%= @doctor.biography %>
-</p>
-<p>
-  <strong>Practice since:</strong>
-  <%= @doctor.practicestartyear %>
-</p>
-<%= link_to 'Edit', edit_doctor_path(@doctor) %> |
-<%= link_to 'Back', doctors_path %>
+<div class="row">
+  <div class="col-md-12"> 
+    <p>
+      <strong>Doctor name:</strong>
+      <%= @doctor.name %>
+    </p>
+    <p>
+      <strong>Date of birth:</strong>
+      <%= @doctor.birthdate %>
+    </p>
+    <p>
+      <strong>Proficiency Level:</strong>
+      <%= @doctor.level %>
+    </p>
+    <p>
+      <strong>Biography:</strong>
+      <%= @doctor.biography %>
+    </p>
+    <p>
+      <strong>Practice since:</strong>
+      <%= @doctor.practicestartyear %>
+    </p>
+    <%= link_to 'Edit', edit_doctor_path(@doctor) %> |
+    <%= link_to 'Back', doctors_path %>
+  </div>
+</div>
