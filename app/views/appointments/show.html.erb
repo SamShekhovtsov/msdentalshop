@@ -1,20 +1,24 @@
-<p>
-  <strong>Appointment date:</strong>
-  <%= @appointment.date %>
-</p>
-<p>
-  <strong>Created Date:</strong>
-  <%= @appointment.created_at %>
-</p>
+<div class="row">
+  <div class="col-md-12"> 
+    <p>
+      <strong>Appointment date:</strong>
+      <%= @appointment.date %>
+    </p>
+    <p>
+      <strong>Created Date:</strong>
+      <%= @appointment.created_at %>
+    </p>
 
-<p>
-  <strong>Doctor:</strong>
-  <%= link_to @appointment.doctor.name, doctor_path(@appointment.doctor) %>
-</p>
+    <p>
+      <strong>Doctor:</strong>
+      <%= link_to @appointment.doctor.name, doctor_path(@appointment.doctor) %>
+    </p>
 
-<p>
-  <strong>Patient:</strong>
-  <%= link_to @appointment.patient.name, patient_path(@appointment.patient) %>
-</p>
-<%= link_to 'Edit', edit_appointment_path(@appointment) %> |
-<%= link_to 'Back', appointments_path %>
+    <p>
+      <strong>Patient:</strong>
+      <%= link_to @appointment.patient.name, patient_path(@appointment.patient) %>
+    </p>
+    <%= link_to 'Edit', edit_appointment_path(@appointment) %> |
+    <%= link_to 'Back', appointments_path %>
+  </div>
+</div>
