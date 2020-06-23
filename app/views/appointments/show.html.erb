@@ -1,24 +1,41 @@
 <div class="row">
   <div class="col-md-12"> 
-    <p>
-      <strong>Appointment date:</strong>
-      <%= @appointment.date %>
-    </p>
-    <p>
-      <strong>Created Date:</strong>
-      <%= @appointment.created_at %>
-    </p>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+				<div class="panel-title">
+					Appointment details
+				</div>
+				
+				<div class="panel-options">
+					<a href="#sample-modal" data-toggle="modal" data-target="#sample-modal-dialog-1" class="bg"><i class="entypo-cog"></i></a>
+					<a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+					<a href="#" data-rel="reload"><i class="entypo-arrows-ccw"></i></a>
+					<a href="#" data-rel="close"><i class="entypo-cancel"></i></a>
+				</div>
+			</div>
+      <div class="panel-body">
+        <h5>
+          <strong>Appointment date:</strong>
+          <%= @appointment.date %>
+        </h5>
+        
+        <h5>
+          <strong>Created Date:</strong>
+          <%= @appointment.created_at %>
+        </h5>
 
-    <p>
-      <strong>Doctor:</strong>
-      <%= link_to @appointment.doctor.name, doctor_path(@appointment.doctor) %>
-    </p>
+        <h5>
+          <strong>Doctor:</strong>
+          <%= link_to @appointment.doctor.name, doctor_path(@appointment.doctor) %>
+        </h5>
 
-    <p>
-      <strong>Patient:</strong>
-      <%= link_to @appointment.patient.name, patient_path(@appointment.patient) %>
-    </p>
-    <%= link_to 'Edit', edit_appointment_path(@appointment) %> |
-    <%= link_to 'Back', appointments_path %>
+        <h5>
+          <strong>Patient:</strong>
+          <%= link_to @appointment.patient.name, patient_path(@appointment.patient) %>
+        </h5>
+        <%= link_to 'Edit', edit_appointment_path(@appointment) %> |
+        <%= link_to 'Back', appointments_path %>
+      </div>
+    </div>
   </div>
 </div>
