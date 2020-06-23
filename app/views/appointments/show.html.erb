@@ -33,8 +33,11 @@
           <strong>Patient:</strong>
           <%= link_to @appointment.patient.name, patient_path(@appointment.patient) %>
         </h5>
-        <%= link_to 'Edit', edit_appointment_path(@appointment) %> |
-        <%= link_to 'Back', appointments_path %>
+
+        <p>
+          <%= link_to 'Edit', edit_appointment_path(@appointment), :class => "btn btn-blue" %> |
+          <%= link_to 'Back', appointments_path, :class => "btn btn-default" %>
+        </p>
       </div>
     </div>
   </div>
