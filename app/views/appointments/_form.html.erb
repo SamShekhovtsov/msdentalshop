@@ -1,35 +1,51 @@
-<%= form_with model: @appointment, local: true do |form| %>
- 
-  <% if @appointment.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@appointment.errors.count, "error") %> prohibited this appointment from being saved:
-      </h2>
-      <ul>
-        <% @appointment.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
- 
-  <p>
-    <%= form.label :date %><br>
-    <%= form.date_field :date %>
-  </p>                                                                                                                                                                                                                                                                                                                      
+<div class="panel panel-primary">
+  <div class="panel-heading">
+		<div class="panel-title">
+			Appointment form
+		</div>
+		
+		<div class="panel-options">
+			<a href="#sample-modal" data-toggle="modal" data-target="#sample-modal-dialog-1" class="bg"><i class="entypo-cog"></i></a>
+			<a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+			<a href="#" data-rel="reload"><i class="entypo-arrows-ccw"></i></a>
+			<a href="#" data-rel="close"><i class="entypo-cancel"></i></a>
+		</div>
+	</div>
+  <div class="panel-body">
+    <%= form_with model: @appointment, local: true do |form| %>
+    
+      <% if @appointment.errors.any? %>
+        <div id="error_explanation">
+          <h2>
+            <%= pluralize(@appointment.errors.count, "error") %> prohibited this appointment from being saved:
+          </h2>
+          <ul>
+            <% @appointment.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    
+      <div class="form-group">
+        <%= form.label :date, :class => "control-label" %>
+        <%= form.date_field :date, :class => "form-control" %>
+      </p>                                                                                                                                                                                                                                                                                                                      
 
-  <p>
-    <%= form.label "Doctor" %><br>
-    <%= form.collection_select(:doctor_id, @doctors, :id, :name, { :prompt => 'Select a Doctor', :selected => @appointment.doctor_id }, { class: 'form-control' }) %>
-  </p>
- 
- <p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
-    <%= form.label "Patient" %><br>
-    <%= form.collection_select(:patient_id, @patients, :id, :name, { :prompt => 'Select a Patient', :selected => @appointment.patient_id }, { class: 'form-control' }) %>
- </p>
+      <div class="form-group">
+        <%= form.label "Doctor", :class => "control-label" %>
+        <%= form.collection_select(:doctor_id, @doctors, :id, :name, { :prompt => 'Select a Doctor', :selected => @appointment.doctor_id }, { class: 'form-control' }) %>
+      </div>
+    
+      <div class="form-group">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+          <%= form.label "Patient", :class => "control-label" %>
+          <%= form.collection_select(:patient_id, @patients, :id, :name, { :prompt => 'Select a Patient', :selected => @appointment.patient_id }, { class: 'form-control' }) %>
+      </div>
 
-  <p>
-    <%= form.submit %>
-  </p>
- 
-<% end %>
+      <div class="form-group">
+        <%= form.submit :class => "btn btn-success" %>
+      </div>
+    
+    <% end %>
+  </div>
+</div>
