@@ -1,26 +1,49 @@
 <div class="row">
   <div class="col-md-12"> 
-    <p>
-      <strong>Doctor name:</strong>
-      <%= @doctor.name %>
-    </p>
-    <p>
-      <strong>Date of birth:</strong>
-      <%= @doctor.birthdate %>
-    </p>
-    <p>
-      <strong>Proficiency Level:</strong>
-      <%= @doctor.level %>
-    </p>
-    <p>
-      <strong>Biography:</strong>
-      <%= @doctor.biography %>
-    </p>
-    <p>
-      <strong>Practice since:</strong>
-      <%= @doctor.practicestartyear %>
-    </p>
-    <%= link_to 'Edit', edit_doctor_path(@doctor) %> |
-    <%= link_to 'Back', doctors_path %>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+				<div class="panel-title">
+					Doctor details
+				</div>
+				
+				<div class="panel-options">
+					<a href="#sample-modal" data-toggle="modal" data-target="#sample-modal-dialog-1" class="bg"><i class="entypo-cog"></i></a>
+					<a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+					<a href="#" data-rel="reload"><i class="entypo-arrows-ccw"></i></a>
+					<a href="#" data-rel="close"><i class="entypo-cancel"></i></a>
+				</div>
+			</div>
+      <div class="panel-body">
+        <h5>
+          <strong>Doctor name:</strong>
+          <%= @doctor.name %>
+        </h5>
+
+        <h5>
+          <strong>Date of birth:</strong>
+          <%= @doctor.birthdate %>
+        </h5>
+
+        <h5>
+          <strong>Proficiency Level:</strong>
+          <%= @doctor.level %>
+        </h5>
+
+        <h5>
+          <strong>Biography:</strong>
+          <%= @doctor.biography %>
+        </h5>
+
+        <h5>
+          <strong>Practice since:</strong>
+          <%= @doctor.practicestartyear %>
+        </h5>
+
+        <p>
+          <%= link_to 'Edit', edit_doctor_path(@doctor), :class => "btn btn-blue" %> |
+          <%= link_to 'Back', doctors_path, :class => "btn btn-default" %>
+        </p>
+      </div>
+    </div>
   </div>
 </div>
