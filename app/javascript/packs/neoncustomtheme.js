@@ -1,0 +1,1 @@
+import '../../../vendor/assets/javascripts/neon-custom'
