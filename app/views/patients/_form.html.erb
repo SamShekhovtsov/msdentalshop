@@ -1,30 +1,47 @@
-<%= form_with model: @patient, local: true do |form| %>
- 
-  <% if @patient.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@patient.errors.count, "error") %> prohibited this patient from being saved:
-      </h2>
-      <ul>
-        <% @patient.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
- 
-  <p>
-    <%= form.label :name %><br>
-    <%= form.text_field :name %>
-  </p>
- 
-  <p>
-    <%= form.label :email %><br>
-    <%= form.text_field :email %>
-  </p>
- 
-  <p>
-    <%= form.submit %>
-  </p>
- 
-<% end %>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+		<div class="panel-title">
+			Doctor form
+		</div>
+		
+		<div class="panel-options">
+			<a href="#sample-modal" data-toggle="modal" data-target="#sample-modal-dialog-1" class="bg"><i class="entypo-cog"></i></a>
+			<a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+			<a href="#" data-rel="reload"><i class="entypo-arrows-ccw"></i></a>
+			<a href="#" data-rel="close"><i class="entypo-cancel"></i></a>
+		</div>
+	</div>
+  <div class="panel-body">
+    <%= form_with model: @patient, local: true do |form| %>
+    
+      <% if @patient.errors.any? %>
+        <div id="error_explanation">
+          <h2>
+            <%= pluralize(@patient.errors.count, "error") %> prohibited this patient from being saved:
+          </h2>
+          <ul>
+            <% @patient.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    
+      <div class="form-group">
+        <%= form.label :name, :class => "control-label" %><br>
+        <%= form.text_field :name, :class => "form-control" %>
+      </div>
+    
+      <div class="form-group">
+        <%= form.label :email, :class => "control-label" %><br>
+        <%= form.text_field :email, :class => "form-control" %>
+      </div>
+    
+      <div class="form-group">
+        <%= form.submit :class => "btn btn-success" %>    
+        <%= link_to 'Back', patients_path, :class => "btn btn-default" %>
+      </div>
+    
+    <% end %>
+  </div>
+</div>
