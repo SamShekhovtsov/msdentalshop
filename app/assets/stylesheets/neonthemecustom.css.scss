@@ -10,12 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- * require_tree ../../../vendor/assets/stylesheets/font-icons
- *= require_tree .
- *= require_self
- *= require_tree ../../../vendor/assets/stylesheets/font-icons/entypo/font
- *= require font-icons/entypo/css/entypo
+ *= require neon-core
+ *= require neon-forms
+ *= require neon-theme
  */
- @import "bootstrap-sprockets";
- @import "bootstrap";
- @import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic');
