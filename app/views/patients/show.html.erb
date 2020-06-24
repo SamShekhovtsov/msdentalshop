@@ -1,10 +1,26 @@
 <div class="row">
   <div class="col-md-12"> 
-    <p>
-      <strong>Patient name:</strong>
-      <%= @patient.name %>
-    </p>
-    <%= link_to 'Edit', edit_patient_path(@patient) %> |
-    <%= link_to 'Back', patients_path %>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+				<div class="panel-title">
+					Patient details
+				</div>
+				
+				<div class="panel-options">
+					<a href="#sample-modal" data-toggle="modal" data-target="#sample-modal-dialog-1" class="bg"><i class="entypo-cog"></i></a>
+					<a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+					<a href="#" data-rel="reload"><i class="entypo-arrows-ccw"></i></a>
+					<a href="#" data-rel="close"><i class="entypo-cancel"></i></a>
+				</div>
+			</div>
+      <div class="panel-body">
+        <p>
+          <strong>Patient name:</strong>
+          <%= @patient.name %>
+        </p>
+        <%= link_to 'Edit', edit_patient_path(@patient), :class => "btn btn-blue" %> |
+        <%= link_to 'Back', patients_path, :class => "btn btn-default" %>
+      </div>
+    </div>
   </div>
 </div>
