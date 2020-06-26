@@ -1,4 +1,3 @@
-import 'webpack-jquery-ui'
 import {Sine, Circ, Elastic, Back, Bounce} from './jquery-ui-es6-migrations'
 
 /**

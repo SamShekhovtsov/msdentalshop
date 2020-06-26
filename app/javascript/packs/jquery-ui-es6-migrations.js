@@ -1,5 +1,3 @@
-import 'webpack-jquery-ui'
-
 const Sine = (p) => {
   return 1 - Math.cos( p * Math.PI / 2 );
 }
