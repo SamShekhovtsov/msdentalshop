@@ -35,7 +35,6 @@
 yarn-debug.log*
 .yarn-integrity
 
-Gemfile.lock
 /config/secrets.yml
 /config/credentials.yml.enc
 /config/credentials/development.yml.enc
