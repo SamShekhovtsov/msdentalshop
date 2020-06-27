@@ -8,7 +8,7 @@ import ScrollToPlugin from 'gsap/ScrollToPlugin'
  *	Theme by: www.laborator.co
  **/
 
-const public_vars = public_vars || {};
+const public_vars = public_vars || {}
 
 jQuery.extend(public_vars, {
 
@@ -32,23 +32,23 @@ jQuery.extend(public_vars, {
 ;(($, window, undefined) => {
     $(document).ready(() => {
 		// Sidebar Menu var
-		public_vars.$body	 	 	= $("body");
-		public_vars.$pageContainer  = public_vars.$body.find(".page-container");
-		public_vars.$chat 			= public_vars.$pageContainer.find('#chat');
-		public_vars.$horizontalMenu = public_vars.$pageContainer.find('header.navbar');
-		public_vars.$sidebarMenu	= public_vars.$pageContainer.find('.sidebar-menu');
-		public_vars.$mainMenu	    = public_vars.$sidebarMenu.find('#main-menu');
-		public_vars.$mainContent	= public_vars.$pageContainer.find('.main-content');
-		public_vars.$sidebarUserEnv = public_vars.$sidebarMenu.find('.sidebar-user-info');
-		public_vars.$sidebarUser 	= public_vars.$sidebarUserEnv.find('.user-link');
+		public_vars.$body	 	 	= $("body")
+		public_vars.$pageContainer  = public_vars.$body.find(".page-container")
+		public_vars.$chat 			= public_vars.$pageContainer.find('#chat')
+		public_vars.$horizontalMenu = public_vars.$pageContainer.find('header.navbar')
+		public_vars.$sidebarMenu	= public_vars.$pageContainer.find('.sidebar-menu')
+		public_vars.$mainMenu	    = public_vars.$sidebarMenu.find('#main-menu')
+		public_vars.$mainContent	= public_vars.$pageContainer.find('.main-content')
+		public_vars.$sidebarUserEnv = public_vars.$sidebarMenu.find('.sidebar-user-info')
+		public_vars.$sidebarUser 	= public_vars.$sidebarUserEnv.find('.user-link')
 
 
-		public_vars.$body.addClass('loaded');
+		public_vars.$body.addClass('loaded')
 
 		// Just to make sure...
 		$(window).on('error', ev => {
 			// Do not let page without showing if JS fails somewhere
-			init_page_transitions();
+			init_page_transitions()
 		});
 
 		if(public_vars.$pageContainer.hasClass('right-sidebar'))
@@ -60,24 +60,24 @@ jQuery.extend(public_vars, {
 
 
 		// Sidebar Menu Setup
-		setup_sidebar_menu();
+		setup_sidebar_menu()
 
 
 
 
 		// Horizontal Menu Setup
-		setup_horizontal_menu();
+		setup_horizontal_menu()
 
 
 
 		// Sidebar Collapse icon
 		public_vars.$sidebarMenu.find(".sidebar-collapse-icon").on('click', function(ev)
 		{
-			ev.preventDefault();
+			ev.preventDefault()
 
-			const with_animation = $(this).hasClass('with-animation');
+			const with_animation = $(this).hasClass('with-animation')
 
-			toggle_sidebar_menu(with_animation);
+			toggle_sidebar_menu(with_animation)
 		});
 
 
@@ -86,21 +86,21 @@ jQuery.extend(public_vars, {
 		// Mobile Sidebar Collapse icon
 		public_vars.$sidebarMenu.find(".sidebar-mobile-menu a").on('click', function(ev)
 		{
-			ev.preventDefault();
+			ev.preventDefault()
 
-			const with_animation = $(this).hasClass('with-animation');
+			const with_animation = $(this).hasClass('with-animation')
 
 			if(with_animation)
 			{
 				public_vars.$mainMenu.stop().slideToggle('normal', () => {
-					public_vars.$mainMenu.css('height', 'auto');
-				});
+					public_vars.$mainMenu.css('height', 'auto')
+				})
 			}
 			else
 			{
-				public_vars.$mainMenu.toggle();
+				public_vars.$mainMenu.toggle()
 			}
-		});
+		})
 
 
 
@@ -108,36 +108,36 @@ jQuery.extend(public_vars, {
 		// Mobile Horizontal Menu Collapse icon
 		public_vars.$horizontalMenu.find(".horizontal-mobile-menu a").on('click', function(ev)
 		{
-			ev.preventDefault();
+			ev.preventDefault()
 
-			const $menu = public_vars.$horizontalMenu.find('.navbar-nav'), with_animation = $(this).hasClass('with-animation');
+			const $menu = public_vars.$horizontalMenu.find('.navbar-nav'), with_animation = $(this).hasClass('with-animation')
 
 			if(with_animation)
 			{
 				$menu.stop().slideToggle('normal', () => {
-					$menu.attr('height', 'auto');
+					$menu.attr('height', 'auto')
 
 					if($menu.css('display') == 'none')
 					{
-						$menu.attr('style', '');
+						$menu.attr('style', '')
 					}
-				});
+				})
 			}
 			else
 			{
-				$menu.toggle();
+				$menu.toggle()
 			}
-		});
+		})
 
 
 
 
 		// Close Sidebar if Tablet Screen is visible
-		public_vars.$sidebarMenu.data('initial-state', (public_vars.$pageContainer.hasClass('sidebar-collapsed') ? 'closed' : 'open'));
+		public_vars.$sidebarMenu.data('initial-state', (public_vars.$pageContainer.hasClass('sidebar-collapsed') ? 'closed' : 'open'))
 
 		if(is('tabletscreen'))
 		{
-			hide_sidebar_menu(false);
+			hide_sidebar_menu(false)
 		}
 
 
@@ -153,23 +153,23 @@ jQuery.extend(public_vars, {
 				cursorborderradius: 1,
 				autohidemode: true,
 				sensitiverail: true
-			};
+			}
 
-			public_vars.$body.find('.dropdown .scroller').niceScroll(nicescroll_defaults);
+			public_vars.$body.find('.dropdown .scroller').niceScroll(nicescroll_defaults)
 
 			$(".dropdown").on("shown.bs.dropdown", () => {
 				$(".scroller").getNiceScroll().resize();
 				$(".scroller").getNiceScroll().show();
-			});
+			})
 		}
 
 
 		// Fixed Sidebar
-		const fixed_sidebar = $(".sidebar-menu.fixed");
+		const fixed_sidebar = $(".sidebar-menu.fixed")
 
 		if(fixed_sidebar.length == 1)
 		{
-			ps_init();
+			ps_init()
 		}
 
 
@@ -180,30 +180,30 @@ jQuery.extend(public_vars, {
 		{
 			$(".scrollable").each((i, el) => {
                 const $this = $(el);
-                let height = attrDefault($this, 'height', $this.height());
+                let height = attrDefault($this, 'height', $this.height())
 
                 if($this.is(':visible'))
 				{
-					$this.removeClass('scrollable');
+					$this.removeClass('scrollable')
 
 					if($this.height() < parseInt(height, 10))
 					{
-						height = $this.outerHeight(true) + 10;
+						height = $this.outerHeight(true) + 10
 					}
 
-					$this.addClass('scrollable');
+					$this.addClass('scrollable')
 				}
 
-                $this.css({maxHeight: ''}).slimScroll({
-					height,
-					position: attrDefault($this, 'scroll-position', 'right'),
-					color: attrDefault($this, 'rail-color', '#000'),
-					size: attrDefault($this, 'rail-width', 6),
-					borderRadius: attrDefault($this, 'rail-radius', 3),
-					opacity: attrDefault($this, 'rail-opacity', .3),
-					alwaysVisible: parseInt(attrDefault($this, 'autohide', 1), 10) == 1 ? false : true
-				});
-            });
+          $this.css({maxHeight: ''}).slimScroll({
+						height,
+						position: attrDefault($this, 'scroll-position', 'right'),
+						color: attrDefault($this, 'rail-color', '#000'),
+						size: attrDefault($this, 'rail-width', 6),
+						borderRadius: attrDefault($this, 'rail-radius', 3),
+						opacity: attrDefault($this, 'rail-opacity', .3),
+						alwaysVisible: parseInt(attrDefault($this, 'autohide', 1), 10) == 1 ? false : true
+					})
+      })
 		}
 
 
@@ -213,78 +213,78 @@ jQuery.extend(public_vars, {
 
 		// Added on v1.1.4 - Fixed collapsing effect with panel tables
 		$(".panel-heading").each((i, el) => {
-            const $this = $(el);
-            let $body = $this.next('table');
+            const $this = $(el)
+            let $body = $this.next('table')
 
-            $body.wrap('<div class="panel-body with-table"></div>');
+            $body.wrap('<div class="panel-body with-table"></div>')
 
-            $body = $this.next('.with-table').next('table');
-            $body.wrap('<div class="panel-body with-table"></div>');
-        });
+            $body = $this.next('.with-table').next('table')
+            $body.wrap('<div class="panel-body with-table"></div>')
+        })
 
-		continueWrappingPanelTables();
+		continueWrappingPanelTables()
 		// End of: Added on v1.1.4
 
 
 		$('body').on('click', '.panel > .panel-heading > .panel-options > a[data-rel="reload"]', function(ev)
 		{
-			ev.preventDefault();
+			ev.preventDefault()
 
-			const $this = jQuery(this).closest('.panel');
+			const $this = jQuery(this).closest('.panel')
 
-			blockUI($this);
-			$this.addClass('reloading');
+			blockUI($this)
+			$this.addClass('reloading')
 
 			setTimeout(() => {
 				unblockUI($this)
-				$this.removeClass('reloading');
+				$this.removeClass('reloading')
 
-			}, 900);
+			}, 900)
 
 		}).on('click', '.panel > .panel-heading > .panel-options > a[data-rel="close"]', function(ev)
 		{
-			ev.preventDefault();
+			ev.preventDefault()
 
-			const $this = $(this), $panel = $this.closest('.panel');
+			const $this = $(this), $panel = $this.closest('.panel')
 
 			const t = new TimelineLite({
 				onComplete() {
 					$panel.slideUp(() => {
 						$panel.remove();
-					});
+					})
 				}
-			});
+			})
 
-			t.append( TweenMax.to($panel, .2, {css: {scale: 0.95}}) );
-			t.append( TweenMax.to($panel, .5, {css: {autoAlpha: 0, transform: "translateX(100px) scale(.95)"}}) );
+			t.append( TweenMax.to($panel, .2, {css: {scale: 0.95}}) )
+			t.append( TweenMax.to($panel, .5, {css: {autoAlpha: 0, transform: "translateX(100px) scale(.95)"}}) )
 
 		}).on('click', '.panel > .panel-heading > .panel-options > a[data-rel="collapse"]', function(ev)
 		{
-            ev.preventDefault();
+            ev.preventDefault()
 
-            const $this = $(this);
-            const $panel = $this.closest('.panel');
-            const $body = $panel.children('.panel-body, .table');
-            let do_collapse = ! $panel.hasClass('panel-collapse');
+            const $this = $(this)
+            const $panel = $this.closest('.panel')
+            const $body = $panel.children('.panel-body, .table')
+            let do_collapse = ! $panel.hasClass('panel-collapse')
 
             if($panel.is('[data-collapsed="1"]'))
 			{
-				$panel.attr('data-collapsed', 0);
-				$body.hide();
-				do_collapse = false;
+				$panel.attr('data-collapsed', 0)
+				$body.hide()
+				do_collapse = false
 			}
 
-            if(do_collapse)
+      if(do_collapse)
 			{
-				$body.slideUp('normal');
-				$panel.addClass('panel-collapse');
+				$body.slideUp('normal')
+				$panel.addClass('panel-collapse')
 			}
 			else
 			{
-				$body.slideDown('normal');
-				$panel.removeClass('panel-collapse');
+				$body.slideDown('normal')
+				$panel.removeClass('panel-collapse')
 			}
-        });
+    })
 
 
 
@@ -292,77 +292,76 @@ jQuery.extend(public_vars, {
 		// Data Toggle for Radio and Checkbox Elements
 		$('[data-toggle="buttons-radio"]').each(function()
 		{
-			const $buttons = $(this).children();
+			const $buttons = $(this).children()
 
 			$buttons.each((i, el) => {
-				const $this = $(el);
+				const $this = $(el)
 
 				$this.click(ev => {
-					$buttons.removeClass('active');
-				});
-			});
-		});
+					$buttons.removeClass('active')
+				})
+			})
+		})
 
 		$('[data-toggle="buttons-checkbox"]').each(function()
 		{
-			const $buttons = $(this).children();
+			const $buttons = $(this).children()
 
 			$buttons.each((i, el) => {
-				const $this = $(el);
+				const $this = $(el)
 
 				$this.click(ev => {
-					$this.removeClass('active');
-				});
-			});
-		});
+					$this.removeClass('active')
+				})
+			})
+		})
 
 		$('[data-loading-text]').each((
             i,
             // Temporary for demo purpose only
             el
         ) => {
-			const $this = $(el);
+			const $this = $(el)
 
 			$this.on('click', ev => {
-				$this.button('loading');
+				$this.button('loading')
 
-				setTimeout(() => { $this.button('reset'); }, 1800);
-			});
-		});
-
+				setTimeout(() => { $this.button('reset') }, 1800);
+			})
+		})
 
 
 
 		// Popovers and tooltips
 		$('[data-toggle="popover"]').each((i, el) => {
-			const $this = $(el), placement = attrDefault($this, 'placement', 'right'), trigger = attrDefault($this, 'trigger', 'click'), popover_class = $this.hasClass('popover-secondary') ? 'popover-secondary' : ($this.hasClass('popover-primary') ? 'popover-primary' : ($this.hasClass('popover-default') ? 'popover-default' : ''));
+			const $this = $(el), placement = attrDefault($this, 'placement', 'right'), trigger = attrDefault($this, 'trigger', 'click'), popover_class = $this.hasClass('popover-secondary') ? 'popover-secondary' : ($this.hasClass('popover-primary') ? 'popover-primary' : ($this.hasClass('popover-default') ? 'popover-default' : ''))
 
 			$this.popover({
 				placement,
 				trigger
-			});
+			})
 
 			$this.on('shown.bs.popover', ev => {
 				const $popover = $this.next();
 
 				$popover.addClass(popover_class);
-			});
-		});
+			})
+		})
 
 		$('[data-toggle="tooltip"]').each((i, el) => {
-			const $this = $(el), placement = attrDefault($this, 'placement', 'top'), trigger = attrDefault($this, 'trigger', 'hover'), popover_class = $this.hasClass('tooltip-secondary') ? 'tooltip-secondary' : ($this.hasClass('tooltip-primary') ? 'tooltip-primary' : ($this.hasClass('tooltip-default') ? 'tooltip-default' : ''));
+			const $this = $(el), placement = attrDefault($this, 'placement', 'top'), trigger = attrDefault($this, 'trigger', 'hover'), popover_class = $this.hasClass('tooltip-secondary') ? 'tooltip-secondary' : ($this.hasClass('tooltip-primary') ? 'tooltip-primary' : ($this.hasClass('tooltip-default') ? 'tooltip-default' : ''))
 
 			$this.tooltip({
 				placement,
 				trigger
-			});
+			})
 
 			$this.on('shown.bs.tooltip', ev => {
-				const $tooltip = $this.next();
+				const $tooltip = $this.next()
 
-				$tooltip.addClass(popover_class);
-			});
-		});
+				$tooltip.addClass(popover_class)
+			})
+		})
 
 
 
@@ -381,33 +380,33 @@ jQuery.extend(public_vars, {
 
 					if (this.$.data('skin') == 'tron') {
                         const // Angle
-                        a = this.angle(this.cv);
+                        a = this.angle(this.cv)
 
                         let // Previous start angle
-                        sa = this.startAngle;
+                        sa = this.startAngle
 
                         let // Start angle
-                        sat = this.startAngle;
+                        sat = this.startAngle
 
                         let // Previous end angle
-                        ea;
+                        ea
 
                         let // End angle
-                        eat = sat + a;
+                        eat = sat + a
 
-                        const r = 1;
+                        const r = 1
 
-                        this.g.lineWidth = this.lineWidth;
+                        this.g.lineWidth = this.lineWidth
 
-                        this.o.cursor && (sat = eat - 0.3) && (eat = eat + 0.3);
+                        this.o.cursor && (sat = eat - 0.3) && (eat = eat + 0.3)
 
                         if (this.o.displayPrevious) {
-							ea = this.startAngle + this.angle(this.v);
-							this.o.cursor && (sa = ea - 0.3) && (ea = ea + 0.3);
-							this.g.beginPath();
-							this.g.strokeStyle = this.pColor;
-							this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, sa, ea, false);
-							this.g.stroke();
+							ea = this.startAngle + this.angle(this.v)
+							this.o.cursor && (sa = ea - 0.3) && (ea = ea + 0.3)
+							this.g.beginPath()
+							this.g.strokeStyle = this.pColor
+							this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, sa, ea, false)
+							this.g.stroke()
 						}
 
                         this.g.beginPath();
