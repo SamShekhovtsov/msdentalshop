@@ -409,21 +409,21 @@ jQuery.extend(public_vars, {
 							this.g.stroke()
 						}
 
-                        this.g.beginPath();
-                        this.g.strokeStyle = r ? this.o.fgColor : this.fgColor;
-                        this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, sat, eat, false);
-                        this.g.stroke();
+                        this.g.beginPath()
+                        this.g.strokeStyle = r ? this.o.fgColor : this.fgColor
+                        this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, sat, eat, false)
+                        this.g.stroke()
 
-                        this.g.lineWidth = 2;
-                        this.g.beginPath();
-                        this.g.strokeStyle = this.o.fgColor;
-                        this.g.arc(this.xy, this.xy, this.radius - this.lineWidth + 1 + this.lineWidth * 2 / 3, 0, 2 * Math.PI, false);
-                        this.g.stroke();
+                        this.g.lineWidth = 2
+                        this.g.beginPath()
+                        this.g.strokeStyle = this.o.fgColor
+                        this.g.arc(this.xy, this.xy, this.radius - this.lineWidth + 1 + this.lineWidth * 2 / 3, 0, 2 * Math.PI, false)
+                        this.g.stroke()
 
-                        return false;
+                        return false
                     }
 				}
-			});
+			})
 		}
 
 
@@ -433,22 +433,22 @@ jQuery.extend(public_vars, {
 		if($.isFunction($.fn.slider))
 		{
 			$(".slider").each((i, el) => {
-                const $this = $(el);
-                const $label_1 = $('<span class="ui-label"></span>');
-                const $label_2 = $label_1.clone();
-                const orientation = attrDefault($this, 'vertical', 0) != 0 ? 'vertical' : 'horizontal';
-                const prefix = attrDefault($this, 'prefix', '');
-                const postfix = attrDefault($this, 'postfix', '');
-                const fill = attrDefault($this, 'fill', '');
-                const $fill = $(fill);
-                const step = attrDefault($this, 'step', 1);
-                const value = attrDefault($this, 'value', 5);
-                const min = attrDefault($this, 'min', 0);
-                const max = attrDefault($this, 'max', 100);
-                const min_val = attrDefault($this, 'min-val', 10);
-                const max_val = attrDefault($this, 'max-val', 90);
-                const is_range = $this.is('[data-min-val]') || $this.is('[data-max-val]');
-                let reps = 0;
+                const $this = $(el)
+                const $label_1 = $('<span class="ui-label"></span>')
+                const $label_2 = $label_1.clone()
+                const orientation = attrDefault($this, 'vertical', 0) != 0 ? 'vertical' : 'horizontal'
+                const prefix = attrDefault($this, 'prefix', '')
+                const postfix = attrDefault($this, 'postfix', '')
+                const fill = attrDefault($this, 'fill', '')
+                const $fill = $(fill)
+                const step = attrDefault($this, 'step', 1)
+                const value = attrDefault($this, 'value', 5)
+                const min = attrDefault($this, 'min', 0)
+                const max = attrDefault($this, 'max', 100)
+                const min_val = attrDefault($this, 'min-val', 10)
+                const max_val = attrDefault($this, 'max-val', 90)
+                const is_range = $this.is('[data-min-val]') || $this.is('[data-max-val]')
+                let reps = 0
 
 
                 // Range Slider Options
@@ -462,39 +462,39 @@ jQuery.extend(public_vars, {
 						values: [min_val, max_val],
 						step,
 						slide(e, ui) {
-							const min_val = (prefix ? prefix : '') + ui.values[0] + (postfix ? postfix : ''), max_val = (prefix ? prefix : '') + ui.values[1] + (postfix ? postfix : '');
+							const min_val = (prefix ? prefix : '') + ui.values[0] + (postfix ? postfix : ''), max_val = (prefix ? prefix : '') + ui.values[1] + (postfix ? postfix : '')
 
-							$label_1.html( min_val );
-							$label_2.html( max_val );
+							$label_1.html( min_val )
+							$label_2.html( max_val )
 
 							if(fill)
-								$fill.val(`${min_val},${max_val}`);
+								$fill.val(`${min_val},${max_val}`)
 
-							reps++;
+							reps++
 						},
 						change(ev, ui) {
 							if(reps == 1)
 							{
-								const min_val = (prefix ? prefix : '') + ui.values[0] + (postfix ? postfix : ''), max_val = (prefix ? prefix : '') + ui.values[1] + (postfix ? postfix : '');
+								const min_val = (prefix ? prefix : '') + ui.values[0] + (postfix ? postfix : ''), max_val = (prefix ? prefix : '') + ui.values[1] + (postfix ? postfix : '')
 
-								$label_1.html( min_val );
-								$label_2.html( max_val );
+								$label_1.html( min_val )
+								$label_2.html( max_val )
 
 								if(fill)
-									$fill.val(`${min_val},${max_val}`);
+									$fill.val(`${min_val},${max_val}`)
 							}
 
-							reps = 0;
+							reps = 0
 						}
-					});
+					})
 
-					var $handles = $this.find('.ui-slider-handle');
+					var $handles = $this.find('.ui-slider-handle')
 
-					$label_1.html((prefix ? prefix : '') + min_val + (postfix ? postfix : ''));
-					$handles.first().append( $label_1 );
+					$label_1.html((prefix ? prefix : '') + min_val + (postfix ? postfix : ''))
+					$handles.first().append( $label_1 )
 
-					$label_2.html((prefix ? prefix : '') + max_val+ (postfix ? postfix : ''));
-					$handles.last().append( $label_2 );
+					$label_2.html((prefix ? prefix : '') + max_val+ (postfix ? postfix : ''))
+					$handles.last().append( $label_2 )
 				}
 				// Normal Slider
 				else
@@ -508,36 +508,36 @@ jQuery.extend(public_vars, {
 						value,
 						step,
 						slide(ev, ui) {
-							const val = (prefix ? prefix : '') + ui.value + (postfix ? postfix : '');
+							const val = (prefix ? prefix : '') + ui.value + (postfix ? postfix : '')
 
-							$label_1.html( val );
+							$label_1.html( val )
 
 
 							if(fill)
-								$fill.val(val);
+								$fill.val(val)
 
-							reps++;
+							reps++
 						},
 						change(ev, ui) {
 							if(reps == 1)
 							{
-								const val = (prefix ? prefix : '') + ui.value + (postfix ? postfix : '');
+								const val = (prefix ? prefix : '') + ui.value + (postfix ? postfix : '')
 
-								$label_1.html( val );
+								$label_1.html( val )
 
 								if(fill)
-									$fill.val(val);
+									$fill.val(val)
 							}
 
-							reps = 0;
+							reps = 0
 						}
-					});
+					})
 
-					var $handles = $this.find('.ui-slider-handle');
+					var $handles = $this.find('.ui-slider-handle')
 						//$fill = $('<div class="ui-fill"></div>');
 
-					$label_1.html((prefix ? prefix : '') + value + (postfix ? postfix : ''));
-					$handles.html( $label_1 );
+					$label_1.html((prefix ? prefix : '') + value + (postfix ? postfix : ''))
+					$handles.html( $label_1 )
 
 					//$handles.parent().prepend( $fill );
 
@@ -554,7 +554,7 @@ jQuery.extend(public_vars, {
 		{
 
 			$('.make-switch.is-radio').on('switch-change', () => {
-		        $('.make-switch.is-radio').bootstrapSwitch('toggleRadioState');
+		        $('.make-switch.is-radio').bootstrapSwitch('toggleRadioState')
 		    });
 		}
 
@@ -568,13 +568,13 @@ jQuery.extend(public_vars, {
 				const $this = $(el),
                       opts = {
                           allowClear: attrDefault($this, 'allowClear', false)
-                      };
+                      }
 
-				$this.select2(opts);
-				$this.addClass('visible');
+				$this.select2(opts)
+				$this.addClass('visible')
 
 				//$this.select2("open");
-			});
+			})
 
 
 			if($.isFunction($.fn.niceScroll))
@@ -583,7 +583,7 @@ jQuery.extend(public_vars, {
 					cursorcolor: '#d4d4d4',
 					cursorborder: '1px solid #ccc',
 					railpadding: {right: 3}
-				});
+				})
 			}
 		}
 
@@ -599,10 +599,10 @@ jQuery.extend(public_vars, {
                           showFirstOption: attrDefault($this, 'first-option', true),
                           'native': attrDefault($this, 'native', false),
                           defaultText: attrDefault($this, 'text', ''),
-                      };
+                      }
 
-				$this.addClass('visible');
-				$this.selectBoxIt(opts);
+				$this.addClass('visible')
+				$this.selectBoxIt(opts)
 			});
 		}
 
@@ -612,7 +612,7 @@ jQuery.extend(public_vars, {
 		// Auto Size for Textarea
 		if($.isFunction($.fn.autosize))
 		{
-			$("textarea.autogrow, textarea.autosize").autosize();
+			$("textarea.autogrow, textarea.autosize").autosize()
 		}
 
 
@@ -621,7 +621,7 @@ jQuery.extend(public_vars, {
 		// Tagsinput
 		if($.isFunction($.fn.tagsinput))
 		{
-			$(".tagsinput").tagsinput();
+			$(".tagsinput").tagsinput()
 		}
 
 
@@ -634,18 +634,18 @@ jQuery.extend(public_vars, {
 				const $this = $(el),
                       opts = {
                           name: $this.attr('name') ? $this.attr('name') : ($this.attr('id') ? $this.attr('id') : 'tt')
-                      };
+                      }
 
 				if($this.hasClass('tagsinput'))
-					return;
+					return
 
 				if($this.data('local'))
 				{
-					let local = $this.data('local');
+					let local = $this.data('local')
 
-					local = local.replace(/\s*,\s*/g, ',').split(',');
+					local = local.replace(/\s*,\s*/g, ',').split(',')
 
-					opts['local'] = local;
+					opts['local'] = local
 				}
 
 				if($this.data('prefetch'))
