@@ -29,25 +29,25 @@
       <!-- add class "multiple-expanded" to allow multiple submenus to open -->
       <!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
       <li class="active opened active has-sub">
-        <a href="index.html">
+        <a href="#">
           <i class="entypo-gauge"></i>
           <span class="title">Dashboard</span>
         </a>
         <ul class="visible">
 					<li>
-						<a href="dashboard-3.html">
-							<span class="title">Appointments</span>
-						</a>
+            <%= link_to appointments_path do %>
+              <%= content_tag :span, "Appointments", :class => "title" %>
+            <% end %>
 					</li>
 					<li class="active">
-						<a href="index.html">
-							<span class="title">Doctors</span>
-						</a>
+            <%= link_to doctors_path do %>
+              <%= content_tag :span, "Doctors", :class => "title" %>
+            <% end %>
 					</li>
 					<li>
-						<a href="dashboard-2.html">
-							<span class="title">Patients</span>
-						</a>
+            <%= link_to patients_path do %>
+              <%= content_tag :span, "Patients", :class => "title" %>
+            <% end %>
 					</li>					
 				</ul>
       </li>
