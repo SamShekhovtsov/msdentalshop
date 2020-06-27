@@ -1,4 +1,6 @@
 import {Sine, Circ, Elastic, Back, Bounce} from './jquery-ui-es6-migrations'
+import { TweenMax } from 'gsap'
+import ScrollToPlugin from 'gsap/ScrollToPlugin'
 
 /**
  *	Neon Main JavaScript File
@@ -1456,7 +1458,7 @@ const setup_sidebar_menu = () =>
 const menu_do_expand = ($submenu, $this, options) => 
 {
 	$submenu.addClass('visible').height('');
-	current_height = $submenu.outerHeight();
+	const current_height = $submenu.outerHeight();
 
 	const props_from = {
               opacity: .2,
