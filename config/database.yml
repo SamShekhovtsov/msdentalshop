@@ -23,6 +23,7 @@ default: &default
 
 development:
   <<: *default
+  host: localhost
   database: msdentalshop
   username: msdentalshop
   password: <%= ENV['MSDENTALSHOP_DATABASE_PASSWORD'] %>
@@ -59,6 +60,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
+  host: localhost
   database: msdentalshop_test
   username: msdentalshop
   password: <%= ENV['MSDENTALSHOP_DATABASE_PASSWORD'] %>
