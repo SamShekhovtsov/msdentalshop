@@ -15,6 +15,9 @@
  *= require_self
  *= require font-icons/entypo/css/entypo
  */
+
  @import "bootstrap-sprockets";
  @import "bootstrap";
- @import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic');
+ @import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic'); 
+
+ $font-size-base: 2.2vmin !important;
