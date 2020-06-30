@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get 'welcome/index'
   #get 'patient/index'
   #get 'appointment/index'
+  
+  get '/logout' => 'auth0#logout'
 
   get 'auth/auth0', as: 'authentication'        # Triggers authentication process
   get 'auth/auth0/callback' => 'auth0#callback' # Authentication successful
