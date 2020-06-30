@@ -1,4 +1,4 @@
-module OmniAuthHelper
+module OmniauthHelper
   def user_signed_in?
     session['userinfo'].present?
   end
