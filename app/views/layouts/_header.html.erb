@@ -437,11 +437,20 @@
 			<li class="sep"></li>
 
 			<li>
-				<a href="extra-login.html">
 					<%= login_or_out %>
-					<!--<%= link_to 'Login', authentication_path, class: "entypo-login right" %>
-					Log Out <i class="entypo-logout right"></i>-->
-				</a>
+					<% if current_user.present? %>
+					<%= link_to('Log Out', logout_path, class: 'entypo-login right') do  %>
+						<%= content_tag(:i, "", :class => "entypo-login right") %>
+					<% end %>
+				<% else %>
+					<%= link_to('Log In', authentication_path, class: 'entypo-logout right') do  %>
+						<%= content_tag(:i, "", :class => "entypo-logout right") %>
+					<% end %>
+				<% end %>
+				<!--<a href="#">
+					<%= link_to 'Login', authentication_path, class: "entypo-login right" %>
+					Log Out <i class="entypo-logout right"></i>
+				</a>-->
 			</li>
 		</ul>
 

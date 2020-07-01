@@ -12,11 +12,11 @@ module ViewHelper
   def login_or_out
     if current_user.present?
       link_to('Log Out', logout_path, class: 'entypo-login right') do 
-        '<i class="entypo-login right"></i>'
+        content_tag(:i, "", :class => "entypo-login right")
       end
     else
       link_to('Log In', authentication_path, class: 'entypo-logout right') do 
-        '<i class="entypo-logout right"></i>'
+        content_tag(:i, "", :class => "entypo-logout right")
       end
     end
   end
