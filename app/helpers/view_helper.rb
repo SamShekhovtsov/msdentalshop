@@ -11,9 +11,13 @@ module ViewHelper
 
   def login_or_out
     if current_user.present?
-      link_to('Log Out', logout_path, class: 'nav-link')
+      link_to('Log Out', logout_path, class: 'entypo-login right') do 
+        '<i class="entypo-login right"></i>'
+      end
     else
-      link_to('Log In', authentication_path, class: 'nav-link')
+      link_to('Log In', authentication_path, class: 'entypo-logout right') do 
+        '<i class="entypo-logout right"></i>'
+      end
     end
   end
 end
