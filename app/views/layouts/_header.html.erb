@@ -437,7 +437,6 @@
 			<li class="sep"></li>
 
 			<li>
-					<%= login_or_out %>
 					<% if current_user.present? %>
 					<%= link_to('Log Out', logout_path, class: 'entypo-login right') do  %>
 						<%= content_tag(:i, "", :class => "entypo-login right") %>
