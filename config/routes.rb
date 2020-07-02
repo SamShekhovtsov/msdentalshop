@@ -17,5 +17,7 @@ Rails.application.routes.draw do
 
   resources :appointments
 
+  devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
+
   root 'welcome#index'
 end

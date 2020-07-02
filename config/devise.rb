@@ -1,0 +1,1 @@
+config.omniauth :google_oauth2, Rails.application.credentials.dig(:auth0, :client_id), Rails.application.credentials.dig(:auth0, :client_secret), access_type: "online"
