@@ -10,7 +10,7 @@ gem 'dotenv-rails', groups: [:development, :test]
 # Use pg as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
-gem 'puma', '~> 4.1'
+gem "puma", ">= 4.3.5"
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
@@ -23,6 +23,12 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+
+gem "rack", ">= 2.2.3"
+gem "activesupport", ">= 6.0.3.2"
+gem "activestorage", ">= 6.0.3.2"
+gem "actionpack", ">= 6.0.3.2"
+gem "websocket-extensions", ">= 0.1.5"
 
 gem 'jquery-rails'
 gem 'bootstrap-sass'
