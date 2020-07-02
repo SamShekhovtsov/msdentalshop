@@ -437,19 +437,9 @@
 			<li class="sep"></li>
 
 			<li>
-					<% if current_user.present? %>
-					<%= link_to('Log Out', logout_path, class: 'entypo-login right') do  %>
-						<%= content_tag(:i, "", :class => "entypo-login right") %>
-					<% end %>
-				<% else %>
-					<%= link_to('Log In', authentication_path, class: 'entypo-logout right') do  %>
-						<%= content_tag(:i, "", :class => "entypo-logout right") %>
-					<% end %>
-				<% end %>
-				<!--<a href="#">
-					<%= link_to 'Login', authentication_path, class: "entypo-login right" %>
+				<a href="extra-login.html">
 					Log Out <i class="entypo-logout right"></i>
-				</a>-->
+				</a>
 			</li>
 		</ul>
 

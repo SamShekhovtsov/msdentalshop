@@ -1,6 +1,4 @@
 class DoctorsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
-  
   def index
     @doctors = Doctor.all
   end
