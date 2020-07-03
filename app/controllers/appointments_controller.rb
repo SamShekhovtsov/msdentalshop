@@ -1,4 +1,6 @@
 class AppointmentsController < ApplicationController
+    before_filter :authenticate_user!, except: [:index, :show]
+    
     def index
         @appointments = Appointment.all
     end
