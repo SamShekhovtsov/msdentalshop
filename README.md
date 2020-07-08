@@ -13,4 +13,5 @@ The application uses latest modern technologies for web development
  - PostgreSQL database
  - new Rails 6 Credentials approach
  - application mailer that connects to GMail development account for sending email notifications
+ - devise and google oauth2 for authentication
 deployed and configured at heroku https://dentalshop.herokuapp.com/
