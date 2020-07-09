@@ -1,12 +1,9 @@
 module OmniauthHelper
   def user_signed_in?
-    #session['userinfo'].present?
+    session[:user_id].present?
   end
 
   def authenticate_user!
-    Rails.logger.debug 'session info below: '
-    Rails.logger.debug session
-    Rails.logger.debug session['userinfo']
     #if user_signed_in?
     #  @current_user = session['userinfo']
     #else
@@ -15,10 +12,10 @@ module OmniauthHelper
   end
 
   def current_user
-    #@current_user
+    @current_user ||= User.find_by(id: session[:user_id])
   end
 
   def reset_session
-    #session['userinfo'] = nil if session['userinfo'].present?
+    session[:user_id] = nil if session[:user_id].present?
   end
 end

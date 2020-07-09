@@ -1,5 +1,5 @@
 class AppointmentsController < ApplicationController
-    before_action :authenticate_user!, except: [:index, :show]
+    #before_action :authenticate_user!, except: [:index, :show]
 
     def index
         @appointments = Appointment.all
@@ -17,7 +17,7 @@ class AppointmentsController < ApplicationController
   
     def create
         if !appointment_params[:date].nil? && appointment_params[:date] < DateTime.current
-            flash[:error] = "Can't scheduled an appointment to a date in the past."
+            flash[:error] = "Can't schedule an appointment to a date in the past."
             @appointment = Appointment.new
             @doctors = Doctor.all
             @patients = Patient.all

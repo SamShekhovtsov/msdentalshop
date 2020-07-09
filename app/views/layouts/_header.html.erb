@@ -438,13 +438,11 @@
 
 			<li>
 				<% if user_signed_in? %>
-					Logged in as <strong><%= current_user.email %></strong>.
+					Email address: <strong><%= current_user.email %></strong>
 				<% else %>
 					<%= link_to "Login", user_google_oauth2_omniauth_authorize_path, :class => 'navbar-link'  %>
 				<% end %>
 			</li>
 		</ul>
-
 	</div>
-
 </div>
