@@ -14,7 +14,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
             .first_or_initialize(email: auth["info"]["email"])
     user.name ||= auth["info"]["name"]
     user.save!
-    Rails.logger.debug user
+    #Rails.logger.debug user
     user.remember_me = true
     sign_in(:user, user)
 
